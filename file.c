@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<malloc.h>
-FILE_D_TYPE*file_temp;
+static FILE_D_TYPE*file_temp;
 void file_globalcon()
 {
 	file_temp=calloc(FILE_MAX_SIZE,sizeof(FILE_D_TYPE));
