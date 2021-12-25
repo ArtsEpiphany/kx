@@ -29,14 +29,10 @@ FILE_S_TYPE convert_cover(const struct meta*const m,const FILE_S_TYPE x,const FI
 	free(c);
 	return y+1;
 }
-void convert(struct page*const a)
+void convert(struct file*const f,const struct meta*const m)
 {
-	struct file*f;
-	struct meta*m;
 	FILE_S_TYPE f1;
 	FILE_S_TYPE f2;
-	f=&(a->f);
-	m=&(a->m);
 	memcpy(file_t1,f->d,f->s*sizeof(FILE_D_TYPE));
 	free(f->d);
 	file_s1=f->s;
