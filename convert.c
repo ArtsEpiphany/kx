@@ -19,14 +19,12 @@ void convert_globaldec()
 }
 FILE_S_TYPE convert_cover(const struct meta*const m,const FILE_S_TYPE x,const FILE_S_TYPE y)
 {
-	struct uid_cid*c;
-	c=malloc(sizeof(struct uid_cid));
-	uid_utc(&(m->u),c);
+	static struct uid_cid c;
+	uid_utc(&(m->u),&c);
 	memcpy(&(file_t2[file_s2]),"UID=",4);
 	file_s2+=4;
-	memcpy(&(file_t2[file_s2]),c->d,sizeof(UID_CID_TYPE)*UID_CID_LENGTH);
+	memcpy(&(file_t2[file_s2]),c.d,sizeof(UID_CID_TYPE)*UID_CID_LENGTH);
 	file_s2+=UID_CID_LENGTH;
-	free(c);
 	return y+1;
 }
 void convert(struct file*const f,const struct meta*const m)
