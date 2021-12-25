@@ -1,4 +1,4 @@
-all:global.o uid.o random.o file.o convert.o
+all:global.o uid.o random.o file.o convert.o fileconvert.o
 global.o:global.c
 	gcc -c global.c -ggdb
 uid.o:uid.c
@@ -9,5 +9,7 @@ file.o:file.c
 	gcc -c file.c -ggdb
 convert.o:convert.c
 	gcc -c convert.c -ggdb
+fileconvert.o:fileconvert.c
+	gcc -c fileconvert.c -ggdb
 clean:
 	rm *.o

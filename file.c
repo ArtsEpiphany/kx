@@ -13,7 +13,7 @@ void file_globaldec()
 	free(file_temp);
 	return;
 }
-void file_read(struct file*const a,const char*const p)
+void file_read(struct file*const a,const GLOBAL_PATH_TYPE*const p)
 {
 	FILE*fp;
 	fp=fopen(p,"rb");
@@ -23,7 +23,7 @@ void file_read(struct file*const a,const char*const p)
 	memcpy(a->d,file_temp,a->s*sizeof(FILE_D_TYPE));
 	return;
 }
-void file_write(const struct file*const a,const char*const p)
+void file_write(const struct file*const a,const GLOBAL_PATH_TYPE*const p)
 {
 	FILE*fp;
 	fp=fopen(p,"wb");
@@ -31,7 +31,7 @@ void file_write(const struct file*const a,const char*const p)
 	fclose(fp);
 	return;
 }
-void file_dec(struct file*const a)
+void file_dec(const struct file*const a)
 {
 	free(a->d);
 	return;

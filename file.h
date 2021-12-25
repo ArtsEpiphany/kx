@@ -8,7 +8,7 @@ struct file
 };
 void file_globalcon();
 void file_globaldec();
-void file_read(struct file*const a,const char*const p);
-void file_write(const struct file*const a,const char*const p);
-void file_dec(struct file*const a);
+void file_read(struct file*const a,const GLOBAL_PATH_TYPE*const p);
+void file_write(const struct file*const a,const GLOBAL_PATH_TYPE*const p);
+void file_dec(const struct file*const a);
 #endif

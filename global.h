@@ -1,5 +1,7 @@
 #ifndef _GLOBAL_H_
 #define _GLOBAL_H_
+#define GLOBAL_PATH_TYPE char
+#define PREBUILD_MAX (100)
 #define UID_UID_TYPE unsigned long long int
 #define UID_CID_TYPE char
 #define UID_UID_BITS (sizeof(UID_UID_TYPE)<<3)
