@@ -1,34 +1,17 @@
 #include"file.h"
-#include<stdio.h>
+#include"buffer.h"
+#include<stdlib.h>
 #include<string.h>
-#include<malloc.h>
-static FILE_D_TYPE*file_temp;
-void file_globalcon()
+void file_read(struct file*const a,const char*const p)
 {
-	file_temp=calloc(FILE_MAX_SIZE,sizeof(FILE_D_TYPE));
+	a->s=buffer_read(p);
+	a->d=calloc(a->s,sizeof(char));
+	memcpy(a->d,buffer,a->s*sizeof(char));
 	return;
 }
-void file_globaldec()
+void file_write(const struct file*const a,const char*const p)
 {
-	free(file_temp);
-	return;
-}
-void file_read(struct file*const a,const GLOBAL_PATH_TYPE*const p)
-{
-	FILE*fp;
-	fp=fopen(p,"rb");
-	a->s=fread(file_temp,sizeof(FILE_D_TYPE),FILE_MAX_SIZE,fp);
-	fclose(fp);
-	a->d=calloc(a->s,sizeof(FILE_D_TYPE));
-	memcpy(a->d,file_temp,a->s*sizeof(FILE_D_TYPE));
-	return;
-}
-void file_write(const struct file*const a,const GLOBAL_PATH_TYPE*const p)
-{
-	FILE*fp;
-	fp=fopen(p,"wb");
-	fwrite(a->d,sizeof(FILE_D_TYPE),a->s,fp);
-	fclose(fp);
+	buffer_write(a->d,a->s,p);
 	return;
 }
 void file_dec(const struct file*const a)

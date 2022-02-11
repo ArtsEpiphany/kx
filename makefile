@@ -1,6 +1,6 @@
-all:global.o uid.o random.o file.o convert.o fileconvert.o
-global.o:global.c
-	gcc -c global.c -ggdb
+all:buffer.o uid.o random.o file.o convert.o fileconvert.o
+buffer.o:buffer.c
+	gcc -c buffer.c -ggdb
 uid.o:uid.c
 	gcc -c uid.c -ggdb
 random.o:random.c
